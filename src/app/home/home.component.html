@@ -1,0 +1,163 @@
+  <!-- navbar start -->
+  <nav class="navbar navbar-expand-lg fixed-top" [style]="navbg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Netflix</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+  <!-- navbar end -->
+
+  <!-- banner start  -->
+  <div class="contain-fluid">
+    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="10000" *ngFor="let banner of bannerResult;let i=index"
+          [ngClass]="{active:i===1}">
+          <img src="https://image.tmdb.org/t/p/original/{{ banner.backdrop_path }}" class="d-block w-100" alt="...">
+          <div class="carousel-caption">
+            <h1>{{banner.original_title}}</h1>
+            <p>{{banner.overview}}</p><br>
+            <a class="btn btn-md" target="_blank">Watch Trailer</a>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+<!-- banner end  -->
+
+<!-- category sections start -->
+<section class="main-container" >
+
+  <!-- trending movies -->
+<div class="contain mt-3 mb-5 p-4">
+  <div class="row mt-4">
+    <h1 class="category-title">Trending Now</h1>
+    <div class="box">
+      <ng-container *ngFor="let movie of trendingResult">
+        <a [routerLink]="['/movie',movie.id]"><img src="https://image.tmdb.org/t/p/original/{{ movie.poster_path }}" class="rowimg largeposter" alt=""></a>                  
+      </ng-container>
+    </div>
+  </div>
+
+  <!-- action movies -->
+  <div class="row mt-4">
+    <h1 class="category-title">Action</h1>
+    <div class="box">
+      <ng-container *ngFor="let movie of actionResult">
+        <a [routerLink]="['/movie',movie.id]"><img src="https://image.tmdb.org/t/p/original/{{ movie.poster_path }}" class="rowimg largeposter" alt=""></a>                  
+      </ng-container>
+    </div>
+  </div>
+
+  <!-- romance movies -->
+  <div class="row mt-4">
+    <h1 class="category-title">Romance</h1>
+    <div class="box">
+      <ng-container *ngFor="let movie of romanceMoviesResult">
+        <a [routerLink]="['/movie',movie.id]"><img src="https://image.tmdb.org/t/p/original/{{ movie.poster_path }}" class="rowimg largeposter" alt=""></a>                  
+      </ng-container>
+    </div>
+  </div>
+
+  <!-- adventure movies -->
+  <div class="row mt-4">
+    <h1 class="category-title">Adventure</h1>
+    <div class="box">
+      <ng-container *ngFor="let movie of adventureResult">
+        <a [routerLink]="['/movie',movie.id]"><img src="https://image.tmdb.org/t/p/original/{{ movie.poster_path }}" class="rowimg largeposter" alt=""></a>                  
+      </ng-container>
+    </div>
+  </div>
+
+  <!-- animation movies -->
+  <div class="row mt-4">
+    <h1 class="category-title">Animation</h1>
+    <div class="box">
+      <ng-container *ngFor="let movie of animationResult">
+        <a [routerLink]="['/movie',movie.id]"><img src="https://image.tmdb.org/t/p/original/{{ movie.poster_path }}" class="rowimg largeposter" alt=""></a>                  
+      </ng-container>
+    </div>
+  </div>
+
+  <!-- comedy movies -->
+  <div class="row mt-4">
+    <h1 class="category-title">Comedy</h1>
+    <div class="box">
+      <ng-container *ngFor="let movie of comedyResult">
+        <a [routerLink]="['/movie',movie.id]"><img src="https://image.tmdb.org/t/p/original/{{ movie.poster_path }}" class="rowimg largeposter" alt=""></a>                  
+      </ng-container>
+    </div>
+  </div>
+
+  <!-- documentary movies -->
+  <div class="row mt-4">
+    <h1 class="category-title">Documentary</h1>
+    <div class="box">
+      <ng-container *ngFor="let movie of documentaryResult">
+        <a [routerLink]="['/movie',movie.id]"><img src="https://image.tmdb.org/t/p/original/{{ movie.poster_path }}" class="rowimg largeposter" alt=""></a>                  
+      </ng-container>
+    </div>
+  </div>
+
+  <!-- science-fiction movies -->
+  <div class="row mt-4">
+    <h1 class="category-title">Sci-fi</h1>
+    <div class="box">
+      <ng-container *ngFor="let movie of sciFictionResult">
+        <a [routerLink]="['/movie',movie.id]"><img src="https://image.tmdb.org/t/p/original/{{ movie.poster_path }}" class="rowimg largeposter" alt=""></a>                  
+      </ng-container>
+    </div>
+  </div>
+
+  <!-- thriller movies -->
+  <div class="row mt-4">
+    <h1 class="category-title">Thriller</h1>
+    <div class="box">
+      <ng-container *ngFor="let movie of thrillerMoviesResult">
+        <a [routerLink]="['/movie',movie.id]"><img src="https://image.tmdb.org/t/p/original/{{ movie.poster_path }}" class="rowimg largeposter" alt=""></a>                  
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+<!-- LINKS -->
+<section class="link">
+  <div class="logos">
+    <a href="#"><i class="fab fa-facebook-square fa-2x logo"></i></a>
+    <a href="#"><i class="fab fa-instagram fa-2x logo"></i></a>
+    <a href="#"><i class="fab fa-twitter fa-2x logo"></i></a>
+    <a href="#"><i class="fab fa-youtube fa-2x logo"></i></a>
+  </div>
+  <div class="sub-links">
+    <ul>
+      <li><a href="#">Audio and Subtitles</a></li>
+      <li><a href="#">Audio Description</a></li>
+      <li><a href="#">Help Center</a></li>
+      <li><a href="#">Gift Cards</a></li>
+      <li><a href="#">Media Center</a></li>
+      <li><a href="#">Investor Relations</a></li>
+      <li><a href="#">Jobs</a></li>
+      <li><a href="#">Terms of Use</a></li>
+      <li><a href="#">Privacy</a></li>
+      <li><a href="#">Legal Notices</a></li>
+      <li><a href="#">Corporate Information</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+  </div>
+</section>
+<!-- END OF LINKS -->
+
+<!-- FOOTER -->
+<footer>
+  <p>Netflix</p>
+</footer>
